@@ -43,7 +43,7 @@ Bcrypt 也能夠僅用於單個路由。
 func main() {
 	m := mego.New()
 	// 也可以僅將 Bcrypt 傳入單個路由中使用。
-	m.Get("/", bcrypt.New(), func(c *bcrypt.Crypt) {
+	m.GET("/", bcrypt.New(), func(c *bcrypt.Crypt) {
 		// ...
 	})
 	m.Run()
@@ -73,7 +73,7 @@ func main() {
 ```go
 func main() {
 	m := mego.New()
-	m.Get("/", bcrypt.New(), func(c *bcrypt.Crypt) string {
+	m.GET("/", bcrypt.New(), func(c *bcrypt.Crypt) string {
 		// 透過 `Hash` 雜湊一段純文字串。
 		return c.Hash("myPassword") // 結果：$2a$12$yEbegYKik2I4UdWpUvafsu...
 	})
@@ -88,7 +88,7 @@ func main() {
 ```go
 func main() {
 	m := mego.New()
-	m.Get("/", bcrypt.New(), func(c *bcrypt.Crypt) string {
+	m.GET("/", bcrypt.New(), func(c *bcrypt.Crypt) string {
 		hashed := c.Hash("myPassword")
 		// 以 `Compare` 來確認輸入的純文字是否和加密的結果相符。
 		if bcrypt.Compare(hashed, "myPassword") {
