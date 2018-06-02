@@ -1,4 +1,4 @@
-# Bcrypt [![GoDoc](https://godoc.org/github.com/go-mego/brypt?status.svg)](https://godoc.org/github.com/go-mego/brypt)
+# Bcrypt [![GoDoc](https://godoc.org/github.com/go-mego/bcrypt?status.svg)](https://godoc.org/github.com/go-mego/bcrypt) [![Coverage Status](https://coveralls.io/repos/github/go-mego/bcrypt/badge.svg?branch=master)](https://coveralls.io/github/go-mego/bcrypt?branch=master) [![Build Status](https://travis-ci.org/go-mego/bcrypt.svg?branch=master)](https://travis-ci.org/go-mego/bcrypt) [![Go Report Card](https://goreportcard.com/badge/github.com/go-mego/bcrypt)](https://goreportcard.com/report/github.com/go-mego/bcrypt)
 
 Bcrypt 是用以取代傳統 MD5 和 SHA1 的演算法，用以演算並產生更安全的密碼。
 
@@ -91,7 +91,7 @@ func main() {
 	m.GET("/", bcrypt.New(), func(c *bcrypt.Crypt) string {
 		hashed := c.Hash("myPassword")
 		// 以 `Compare` 來確認輸入的純文字是否和加密的結果相符。
-		if bcrypt.Compare(hashed, "myPassword") {
+		if c.Compare(hashed, "myPassword") {
 			return "密碼相符！"
 		} else {
 			return "密碼不對啦！"
