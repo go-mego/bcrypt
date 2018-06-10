@@ -19,6 +19,7 @@ func New(opts ...*Options) mego.HandlerFunc {
 		c.Map(&Crypt{
 			options: o,
 		})
+		c.Next()
 	}
 }
 
