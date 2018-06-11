@@ -20,7 +20,7 @@ $ go get github.com/go-mego/bcrypt
 
 # 使用方式
 
-將 `bcrypt.New` 傳入 Mego 引擎的 `New` 就能夠作為全域中介軟體，在不同的路由中使用相關的雜湊演算法函式。
+將 `bcrypt.New` 傳入 Mego 引擎的 `Use` 就能夠作為全域中介軟體，在不同的路由中使用相關的雜湊演算法函式。
 
 ```go
 package main
